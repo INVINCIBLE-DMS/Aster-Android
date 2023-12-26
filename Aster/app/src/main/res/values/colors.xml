@@ -7,6 +7,6 @@
     <color name="light_pink">#FFA0DF</color>
     <color name="normal_pink">#FF7DD4</color>
     <color name="strong_pink">#FF49C2</color>
-    <color name="dark_color">#939393</color>
+    <color name="dark_gray">#939393</color>
     <color name="light_gray">#CCCCCC</color>
 </resources>
