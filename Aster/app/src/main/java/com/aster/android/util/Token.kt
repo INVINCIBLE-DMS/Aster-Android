@@ -1,4 +1,4 @@
 package com.aster.android.util
 
-class Token {
-}
+var ACCESS_TOKEN = ""
+var REFRESH_TOKEN =""
