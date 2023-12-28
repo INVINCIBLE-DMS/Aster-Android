@@ -1,14 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".feature.myPage.fragment.MyPageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_myPage_profile"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="70dp"
+        android:background="@color/light_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_myPage_info"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_myPage_profile">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_myPage_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/my_page_person"
+                android:layout_marginStart="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/iv_myPage_grade"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                app:layout_constraintTop_toTopOf="@id/iv_myPage_name"
+                app:layout_constraintBottom_toBottomOf="@id/iv_myPage_name"
+                app:layout_constraintStart_toEndOf="@id/iv_myPage_name"/>
+
+            <TextView
+                android:id="@+id/tv_myPage_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:text="박의엘"
+                android:fontFamily="@font/bold"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintTop_toTopOf="@id/iv_myPage_name"
+                app:layout_constraintBottom_toBottomOf="@id/iv_myPage_name"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <ImageView
+                android:id="@+id/iv_myPage_grade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/my_page_grade"
+                app:layout_constraintStart_toStartOf="@id/iv_myPage_name"
+                app:layout_constraintTop_toBottomOf="@id/iv_myPage_name"
+                app:layout_constraintBottom_toTopOf="@id/iv_myPage_match"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/grade"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="@id/iv_myPage_grade"
+                app:layout_constraintBottom_toBottomOf="@id/iv_myPage_grade"
+                app:layout_constraintStart_toEndOf="@id/iv_myPage_grade"/>
+
+            <TextView
+                android:id="@+id/tv_myPage_grade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1111"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/bold"
+                app:layout_constraintTop_toTopOf="@id/iv_myPage_grade"
+                app:layout_constraintBottom_toBottomOf="@id/iv_myPage_grade"
+                app:layout_constraintEnd_toEndOf="@id/tv_myPage_name"/>
+
+            <ImageView
+                android:id="@+id/iv_myPage_match"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/my_page_love"
+                app:layout_constraintStart_toStartOf="@id/iv_myPage_grade"
+                app:layout_constraintTop_toBottomOf="@id/iv_myPage_grade"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/best_match"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="@id/iv_myPage_match"
+                app:layout_constraintBottom_toBottomOf="@id/iv_myPage_match"
+                app:layout_constraintStart_toEndOf="@id/iv_myPage_match"/>
+
+            <TextView
+                android:id="@+id/tv_myPage_match"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="박의엘"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/bold"
+                app:layout_constraintTop_toTopOf="@id/iv_myPage_match"
+                app:layout_constraintBottom_toBottomOf="@id/iv_myPage_match"
+                app:layout_constraintEnd_toEndOf="@id/tv_myPage_grade"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+    
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_myPage_class_info"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="26dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintStart_toStartOf="@id/card_myPage_info"
+        app:layout_constraintEnd_toEndOf="@id/card_myPage_info"
+        app:layout_constraintTop_toBottomOf="@id/card_myPage_info">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/my_class_info"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+    
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_myPage_edit"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/edit"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/bold"
+        android:background="@drawable/my_page_btn_back"
+        android:backgroundTint="@color/light_pink"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@id/card_myPage_class_info"
+        app:layout_constraintEnd_toStartOf="@id/btn_myPage_show"
+        app:layout_constraintTop_toBottomOf="@id/card_myPage_class_info"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_myPage_show"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/show_my_feed"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/bold"
+        android:backgroundTint="@color/strong_pink"
+        android:background="@drawable/my_page_btn_back"
+        app:layout_constraintEnd_toEndOf="@id/card_myPage_class_info"
+        app:layout_constraintStart_toEndOf="@id/btn_myPage_edit"
+        app:layout_constraintTop_toBottomOf="@id/card_myPage_class_info"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
