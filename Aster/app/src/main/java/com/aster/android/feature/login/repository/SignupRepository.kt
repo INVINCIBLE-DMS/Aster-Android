@@ -7,7 +7,7 @@ import retrofit2.Response
 
 class LoginXquareRepository {
 
-    fun loginXquare(
+    suspend fun loginXquare(
         loginXquareRequest: LoginXquareRequest,
     ): Response<LoginXquareResponse> = usersApi.login_xquare(loginXquareRequest)
 }
