@@ -4,6 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".feature.login.activity.SignupActivity">
 
+    <data>
+        
+        <variable
+            name="SignupActivity"
+            type="com.aster.android.feature.login.activity.SignupActivity" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -68,7 +74,7 @@
             android:text="@string/signup"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:onClick="loginXquare"
+            android:onClick="@{ ()-> SignupActivity.loginXquare()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/et_signup_pw"
             app:layout_constraintStart_toStartOf="@id/et_signup_pw" />
