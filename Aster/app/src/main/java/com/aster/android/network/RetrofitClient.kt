@@ -16,6 +16,7 @@ object RetrofitClient {
         retrofit = Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            //.addCallAdapterFactory() //rxjava
             .client(
                 OkHttpClient.Builder()
                     .addInterceptor(
@@ -32,7 +33,8 @@ class RequestInterceptor : Interceptor {
     private lateinit var request: Request
     override fun intercept(chain: Interceptor.Chain): Response {
         val ignorePath = arrayListOf(
-            "/"
+            "/users/login",
+            "/aster/auth/"
         )
         request = if (ignorePath.contains(chain.request().url().encodedPath()))
             chain.request().newBuilder().build()
