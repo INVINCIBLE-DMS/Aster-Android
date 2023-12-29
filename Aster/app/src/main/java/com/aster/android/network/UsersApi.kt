@@ -11,13 +11,13 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface UsersApi {
-    @POST("users/login") //스퀘어 로그인
-    fun login_xquare(
+    @POST("/users/login") //스퀘어 로그인
+    suspend fun login_xquare(
         @Body loginXquareRequest: LoginXquareRequest,
     ): Response<LoginXquareResponse>
 
-    @GET("users/account-id/{accountId}") //스퀘어 유저 조회
-    fun searchUser_xquare(
+    @GET("/users/account-id/{accountId}") //스퀘어 유저 조회
+    suspend fun searchUser_xquare(
         @Header("Authorization") accessToken: String,
         @Path("accountId") accountId: String,
     ): Response<AccountXquareResponse>

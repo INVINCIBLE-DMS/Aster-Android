@@ -6,7 +6,7 @@ data class AccountXquareResponse(
     val birth_day: String,
     val grade: Int,
     val class_num: Int,
-    val profile_image_url: String,
+    val profile_file_name: String,
     val password: String,
     val account_id: String,
     val num: Int,

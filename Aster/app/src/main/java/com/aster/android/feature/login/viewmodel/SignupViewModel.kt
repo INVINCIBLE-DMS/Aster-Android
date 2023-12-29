@@ -8,12 +8,13 @@ import androidx.lifecycle.viewModelScope
 import com.aster.android.feature.login.model.AccountXquareResponse
 import com.aster.android.feature.login.model.LoginXquareRequest
 import com.aster.android.feature.login.model.LoginXquareResponse
+import com.aster.android.feature.login.model.SignupResponse
 import com.aster.android.feature.login.repository.SignupRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class LoginXquareViewModel(
+class SignupViewModel(
     private val signupRepository: SignupRepository,
     private val pref: SharedPreferences,
 ) : ViewModel() {
@@ -23,6 +24,9 @@ class LoginXquareViewModel(
 
     private val _accountXquareResponse = MutableLiveData<Response<AccountXquareResponse>>()
     val accountXquareResponse: LiveData<Response<AccountXquareResponse>> = _accountXquareResponse
+
+    private val _signupResponse = MutableLiveData<Response<SignupResponse>>()
+    val signupResponse: LiveData<Response<SignupResponse>> = _signupResponse
 
     fun loginXquare(
         id: String,
@@ -44,8 +48,24 @@ class LoginXquareViewModel(
     ) {
 
         viewModelScope.launch(Dispatchers.IO) {
-            _loginXquareResponse.postValue()
+            _accountXquareResponse.postValue(signupRepository.accountXquare(account_id))
         }
     }
 
+    fun postSignup(
+        username: String,
+        studentId: String,
+        profileImgUrl: String,
+    ) {
+
+        viewModelScope.launch(Dispatchers.IO) {
+            _signupResponse.postValue(
+                signupRepository.postSignup(
+                    username,
+                    studentId,
+                    profileImgUrl
+                )
+            )
+        }
+    }
 }
