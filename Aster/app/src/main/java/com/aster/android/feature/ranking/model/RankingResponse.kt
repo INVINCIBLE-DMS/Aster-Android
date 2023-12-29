@@ -1,4 +1,7 @@
 package com.aster.android.feature.ranking.model
 
-class RankingResponse {
-}
+data class RankingResponse(
+    val grade: Long,
+    val classNumber: Long,
+    val candyCount: Int,
+)
