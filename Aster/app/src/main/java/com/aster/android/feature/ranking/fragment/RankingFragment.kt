@@ -9,6 +9,7 @@ import com.aster.android.databinding.FragmentRankingBinding
 import com.aster.android.feature.ranking.repository.RankingRepository
 import com.aster.android.feature.ranking.viewmodel.RankingViewModel
 import com.aster.android.feature.ranking.viewmodel.factory.RankingViewModeFactory
+import com.aster.android.util.OK
 
 
 class RankingFragment : BaseFragment<FragmentRankingBinding>(R.layout.fragment_ranking) {
@@ -29,6 +30,21 @@ class RankingFragment : BaseFragment<FragmentRankingBinding>(R.layout.fragment_r
         super.onViewCreated(view, savedInstanceState)
         binding.rankingFragment = this
         binding.rankingViewModel = rankingViewModel
+        initRankingData()
+    }
+
+    private fun initRankingData() {
+        rankingViewModel.getRanking()
+    }
+
+    private fun observeGetRanking() {
+        rankingViewModel.rankingResponse.observe(viewLifecycleOwner) {
+            when(it.code()) {
+                OK-> {
+
+                }
+            }
+        }
     }
 
 }
