@@ -15,7 +15,7 @@ abstract class BaseFragment<V : ViewDataBinding>(
     @LayoutRes private val layoutId: Int
 ) : Fragment() {
 
-    private lateinit var binding: V
+    protected lateinit var binding: V
 
     private val pref: SharedPreferences by lazy {
         initPref(requireContext())
