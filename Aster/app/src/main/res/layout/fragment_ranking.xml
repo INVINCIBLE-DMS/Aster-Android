@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="RankingFragment"
+            type="com.aster.android.feature.ranking.fragment.RankingFragment" />
+        <variable
+            name="RankingViewModel"
+            type="com.aster.android.feature.ranking.viewmodel.RankingViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -28,6 +38,7 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
         
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_ranking"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="50dp"
