@@ -207,43 +207,6 @@
                     app:layout_constraintBottom_toBottomOf="@id/tv_myPage_candy"
                     app:layout_constraintStart_toEndOf="@id/tv_myPage_candy"/>
 
-                <TextView
-                    android:id="@+id/tv_myPage_rank"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="12위"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/bold"
-                    android:layout_marginEnd="25dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/tv_myPage_candy_count"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_myPage_candy_count"/>
-
-                <TextView
-                    android:id="@+id/tv_tv_myPage_r"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/rank"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/regular"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintTop_toTopOf="@id/tv_myPage_rank"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_myPage_rank"
-                    app:layout_constraintEnd_toStartOf="@id/tv_myPage_rank"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/trending_up_icon"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintTop_toTopOf="@id/tv_tv_myPage_r"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_tv_myPage_r"
-                    app:layout_constraintEnd_toStartOf="@id/tv_tv_myPage_r"/>
-
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
