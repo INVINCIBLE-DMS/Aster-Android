@@ -1,4 +1,4 @@
-package com.aster.android.feature.login.model
+package com.aster.android.feature.signup.model
 
 data class LoginXquareRequest (
     val account_id : String,

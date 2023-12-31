@@ -1,10 +1,10 @@
-package com.aster.android.feature.login.repository
+package com.aster.android.feature.signup.repository
 
-import com.aster.android.feature.login.model.AccountXquareResponse
-import com.aster.android.feature.login.model.LoginXquareRequest
-import com.aster.android.feature.login.model.LoginXquareResponse
-import com.aster.android.feature.login.model.SignupRequest
-import com.aster.android.feature.login.model.SignupResponse
+import com.aster.android.feature.signup.model.AccountXquareResponse
+import com.aster.android.feature.signup.model.LoginXquareRequest
+import com.aster.android.feature.signup.model.LoginXquareResponse
+import com.aster.android.feature.signup.model.SignupRequest
+import com.aster.android.feature.signup.model.SignupResponse
 import com.aster.android.network.authApi
 import com.aster.android.network.usersApi
 import com.aster.android.util.ACCESS_TOKEN

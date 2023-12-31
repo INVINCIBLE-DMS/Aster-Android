@@ -1,8 +1,8 @@
 package com.aster.android.network
 
-import com.aster.android.feature.login.model.AccountXquareResponse
-import com.aster.android.feature.login.model.LoginXquareRequest
-import com.aster.android.feature.login.model.LoginXquareResponse
+import com.aster.android.feature.signup.model.AccountXquareResponse
+import com.aster.android.feature.signup.model.LoginXquareRequest
+import com.aster.android.feature.signup.model.LoginXquareResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET

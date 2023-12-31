@@ -2,13 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".feature.login.activity.SignupActivity">
+    tools:context=".feature.signup.activity.SignupActivity">
 
     <data>
         
         <variable
             name="SignupActivity"
-            type="com.aster.android.feature.login.activity.SignupActivity" />
+            type="com.aster.android.feature.signup.activity.SignupActivity" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
