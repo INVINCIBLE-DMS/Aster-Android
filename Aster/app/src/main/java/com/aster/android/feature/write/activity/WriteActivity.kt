@@ -1,7 +1,7 @@
 package com.aster.android.feature.write.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.aster.android.R
 
 class WriteActivity : AppCompatActivity() {
