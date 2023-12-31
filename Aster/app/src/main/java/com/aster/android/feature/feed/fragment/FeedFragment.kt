@@ -47,7 +47,7 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>(R.layout.fragment_feed) {
             startActivity(intent)
         }
     }
-    
+
     private fun initRecyclerView() {
         binding.rvFeed.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
     }
