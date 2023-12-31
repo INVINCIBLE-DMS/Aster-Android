@@ -1,4 +1,4 @@
-package com.aster.android.feature.login.activity
+package com.aster.android.feature.signup.activity
 
 import android.os.Bundle
 import android.widget.Toast
@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.aster.android.R
 import com.aster.android.base.BaseActivity
 import com.aster.android.databinding.ActivitySignupBinding
-import com.aster.android.feature.login.repository.SignupRepository
-import com.aster.android.feature.login.viewmodel.SignupViewModel
-import com.aster.android.feature.login.viewmodel.factory.LoginXquareFactory
+import com.aster.android.feature.signup.repository.SignupRepository
+import com.aster.android.feature.signup.viewmodel.SignupViewModel
+import com.aster.android.feature.signup.viewmodel.factory.LoginXquareFactory
 import com.aster.android.util.ACCESS_TOKEN
 import com.aster.android.util.NICKNAME_EXISTS
 import com.aster.android.util.NOT_FOUND
