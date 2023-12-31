@@ -3,7 +3,7 @@
     <data>
 
         <variable
-            name="FragmentMyPage"
+            name="MyPageFragment"
             type="com.aster.android.feature.myPage.fragment.MyPageFragment" />
         <variable
             name="MyPageViewModel"
