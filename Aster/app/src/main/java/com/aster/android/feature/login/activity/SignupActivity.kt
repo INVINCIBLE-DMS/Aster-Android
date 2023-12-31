@@ -1,7 +1,6 @@
 package com.aster.android.feature.login.activity
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.aster.android.R
@@ -65,7 +64,6 @@ class SignupActivity : BaseActivity<ActivitySignupBinding>(R.layout.activity_sig
             when (it.code()) {
                 OK -> {
                     it.body()?.apply {
-                        Log.d("TEST", "a" + name)
                         signupViewModel.postSignup(
                             name,
                             "$grade$class_num${String.format("%02d", num)}",
