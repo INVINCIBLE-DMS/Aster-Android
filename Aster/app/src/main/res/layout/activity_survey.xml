@@ -1,9 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".feature.survey.activity.SurveyActivity">
+<layout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+        <variable
+            name="SurveyActivity"
+            type="com.aster.android.feature.survey.activity.SurveyActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".feature.survey.activity.SurveyActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_survey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_survey_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/left_arrow_icon"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"/>
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:max="100"
+                android:progressDrawable="@drawable/progress_bar_custom"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:progress="40" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/skip"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="20dp"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/tv_survey_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="STEP 6/30"
+            android:layout_marginTop="20dp"
+            android:textSize="12sp"
+            android:textColor="@color/strong_pink"
+            android:fontFamily="@font/bold"
+            app:layout_constraintStart_toStartOf="@id/tb_survey"
+            app:layout_constraintEnd_toEndOf="@id/tb_survey"
+            app:layout_constraintTop_toBottomOf="@id/tb_survey"/>
+
+        <TextView
+            android:id="@+id/tv_survey_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="제모ㅓㄱ"
+            android:layout_marginTop="28sp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/regular"
+            app:layout_constraintStart_toStartOf="@id/tv_survey_step"
+            app:layout_constraintEnd_toEndOf="@id/tv_survey_step"
+            app:layout_constraintTop_toBottomOf="@id/tv_survey_step"/>
+
+        <ImageView
+            android:id="@+id/iv_survey"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="34dp"
+            app:layout_constraintStart_toStartOf="@id/tv_survey_title"
+            app:layout_constraintEnd_toEndOf="@id/tv_survey_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_survey_title"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/iv_survey"
+            app:layout_constraintEnd_toEndOf="@id/iv_survey"
+            app:layout_constraintTop_toBottomOf="@id/iv_survey">
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
