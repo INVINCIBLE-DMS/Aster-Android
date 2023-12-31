@@ -34,7 +34,9 @@ class RequestInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val ignorePath = arrayListOf(
             "/users/login",
-            "/aster/auth/"
+            "/aster/auth",
+            "/aster/feed",
+            "/aster/school-class"
         )
         request = if (ignorePath.contains(chain.request().url().encodedPath()))
             chain.request().newBuilder().build()
