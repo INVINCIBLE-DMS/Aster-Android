@@ -24,7 +24,7 @@ class FeedAdapter(
         val likeImg : ImageView = itemView.findViewById(R.id.iv_feed_item_like_inactive)
         val likeNum: TextView = itemView.findViewById(R.id.tv_feed_item_like_count)
         val feedImg : ImageView = itemView.findViewById(R.id.iv_feed_item)
-        val chatNum : TextView = itemView.findViewById(R.id.tv_feed_item_like_count)
+        val chatNum : TextView = itemView.findViewById(R.id.tv_feed_item_chat)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedViewHolder {
@@ -40,15 +40,17 @@ class FeedAdapter(
         holder.apply {
             title.text = itemList[position].content
             time.text = itemList[position].createdAt.toString()
-            /*Glide
+            Glide
                 .with(context)
-                .load(itemList[position].)*/
+                .load(itemList[position].profileImgUrl)
+                .into(writerImg)
+            writer.text = itemList[position].username
             likeNum.text = itemList[position].likeCount.toString()
             Glide
                 .with(context)
                 .load(itemList[position].feedImgUrl)
                 .into(feedImg)
-            //chatNum.text = itemList[position]
+            chatNum.text = itemList[position].commentCount.toString()
         }
     }
 }
