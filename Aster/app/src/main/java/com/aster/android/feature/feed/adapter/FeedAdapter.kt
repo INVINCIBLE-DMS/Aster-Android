@@ -1,6 +1,7 @@
 package com.aster.android.feature.feed.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,23 +9,24 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.aster.android.R
+import com.aster.android.feature.detail.activity.DetailActivity
 import com.aster.android.feature.feed.model.FeedResponse
 import com.bumptech.glide.Glide
 
 class FeedAdapter(
     private val itemList: List<FeedResponse>,
     private val context: Context,
-): RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {
+) : RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {
 
     class FeedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.tv_feed_item_title)
         val time: TextView = itemView.findViewById(R.id.tv_feed_item_time)
         val writerImg: ImageView = itemView.findViewById(R.id.iv_feed_item_writer)
         val writer: TextView = itemView.findViewById(R.id.tv_feed_item_writer)
-        val likeImg : ImageView = itemView.findViewById(R.id.iv_feed_item_like_inactive)
+        val likeImg: ImageView = itemView.findViewById(R.id.iv_feed_item_like_inactive)
         val likeNum: TextView = itemView.findViewById(R.id.tv_feed_item_like_count)
-        val feedImg : ImageView = itemView.findViewById(R.id.iv_feed_item)
-        val chatNum : TextView = itemView.findViewById(R.id.tv_feed_item_chat)
+        val feedImg: ImageView = itemView.findViewById(R.id.iv_feed_item)
+        val chatNum: TextView = itemView.findViewById(R.id.tv_feed_item_chat)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedViewHolder {
@@ -51,6 +53,11 @@ class FeedAdapter(
                 .load(itemList[position].feedImgUrl)
                 .into(feedImg)
             chatNum.text = itemList[position].commentCount.toString()
+            itemView.setOnClickListener {
+                val intent = Intent(context, DetailActivity::class.java)
+                intent.putExtra("feedId", itemList[position].id)
+                context.startActivity(intent)
+            }
         }
     }
 }
