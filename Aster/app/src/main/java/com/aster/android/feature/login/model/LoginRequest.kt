@@ -1,4 +1,5 @@
 package com.aster.android.feature.login.model
 
-class LoginRequest {
-}
+data class LoginRequest(
+    val studentId:String,
+)

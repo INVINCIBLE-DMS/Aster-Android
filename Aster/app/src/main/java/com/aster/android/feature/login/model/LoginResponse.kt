@@ -1,4 +1,5 @@
 package com.aster.android.feature.login.model
 
-class LoginResponse {
-}
+data class LoginResponse (
+    val accessToken: String,
+)
