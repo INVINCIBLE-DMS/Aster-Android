@@ -1,11 +1,13 @@
 package com.aster.android.feature.signup.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.aster.android.R
 import com.aster.android.base.BaseActivity
 import com.aster.android.databinding.ActivitySignupBinding
+import com.aster.android.feature.login.activity.LoginActivity
 import com.aster.android.feature.signup.repository.SignupRepository
 import com.aster.android.feature.signup.viewmodel.SignupViewModel
 import com.aster.android.feature.signup.viewmodel.factory.LoginXquareFactory
@@ -35,9 +37,17 @@ class SignupActivity : BaseActivity<ActivitySignupBinding>(R.layout.activity_sig
 
         binding.signupActivity = this
 
+        moveLogin()
         observeLoginXquare()
         observeAccountXquare()
         observeSignup()
+    }
+
+    private fun moveLogin() {
+        binding.ivSignupCandy.setOnClickListener {
+            val intent = Intent(baseContext,LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     fun loginXquare() {
