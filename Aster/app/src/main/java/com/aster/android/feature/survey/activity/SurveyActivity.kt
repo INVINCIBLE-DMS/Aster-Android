@@ -39,7 +39,7 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(R.layout.activity_sur
         surveyViewModel.surveyShowResponse.observe(this) {
             when(it.code()) {
                 OK-> {
-                    
+
                 }
             }
         }
