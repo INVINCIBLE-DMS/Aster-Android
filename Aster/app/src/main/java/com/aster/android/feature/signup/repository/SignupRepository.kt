@@ -7,7 +7,6 @@ import com.aster.android.feature.signup.model.SignupRequest
 import com.aster.android.feature.signup.model.SignupResponse
 import com.aster.android.network.authApi
 import com.aster.android.network.usersApi
-import com.aster.android.util.ACCESS_TOKEN
 import retrofit2.Response
 
 class SignupRepository {
@@ -18,9 +17,7 @@ class SignupRepository {
 
     suspend fun accountXquare(
         accountId: String,
-    ): Response<AccountXquareResponse> = usersApi.searchUser_xquare(
-        ACCESS_TOKEN, accountId
-    )
+    ): Response<AccountXquareResponse> = usersApi.searchUser_xquare(accountId)
 
     suspend fun postSignup(
         username: String,
