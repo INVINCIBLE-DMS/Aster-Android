@@ -83,7 +83,7 @@
                     android:src="@drawable/my_page_grade"
                     app:layout_constraintStart_toStartOf="@id/iv_myPage_name"
                     app:layout_constraintTop_toBottomOf="@id/iv_myPage_name"
-                    app:layout_constraintBottom_toTopOf="@id/iv_myPage_match"/>
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -109,38 +109,6 @@
                     app:layout_constraintBottom_toBottomOf="@id/iv_myPage_grade"
                     app:layout_constraintEnd_toEndOf="@id/tv_myPage_name"/>
 
-                <ImageView
-                    android:id="@+id/iv_myPage_match"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/my_page_love"
-                    app:layout_constraintStart_toStartOf="@id/iv_myPage_grade"
-                    app:layout_constraintTop_toBottomOf="@id/iv_myPage_grade"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/best_match"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/regular"
-                    android:layout_marginStart="8dp"
-                    app:layout_constraintTop_toTopOf="@id/iv_myPage_match"
-                    app:layout_constraintBottom_toBottomOf="@id/iv_myPage_match"
-                    app:layout_constraintStart_toEndOf="@id/iv_myPage_match"/>
-
-                <TextView
-                    android:id="@+id/tv_myPage_match"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="박의엘"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/bold"
-                    app:layout_constraintTop_toTopOf="@id/iv_myPage_match"
-                    app:layout_constraintBottom_toBottomOf="@id/iv_myPage_match"
-                    app:layout_constraintEnd_toEndOf="@id/tv_myPage_grade"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
