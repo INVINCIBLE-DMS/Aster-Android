@@ -5,19 +5,16 @@ import com.aster.android.feature.survey.model.SurveyShowResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.PUT
 
 interface SurveyStorageApi {
 
     @GET("/aster/survey-storage")
     suspend fun surveyShow(
-        @Header("Authorization") accessToken: String,
     ): Response<List<SurveyShowResponse>>
 
     @PUT("aster/survey-storage")
     suspend fun surveyAnswer(
-        @Header("Authorization") accessToken: String,
         @Body surveyAnswerRequest: SurveyAnswerRequest,
     ): Response<Void>
 }
