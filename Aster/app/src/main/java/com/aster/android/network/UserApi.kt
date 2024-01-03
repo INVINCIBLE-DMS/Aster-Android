@@ -1,5 +1,7 @@
 package com.aster.android.network
 
+import com.aster.android.feature.home.model.MatchingBothRequest
+import com.aster.android.feature.home.model.MatchingBothResponse
 import com.aster.android.feature.home.model.MatchingRequest
 import com.aster.android.feature.home.model.MatchingResponse
 import com.aster.android.feature.myPage.model.MyPageResponse
@@ -16,4 +18,9 @@ interface UserApi {
     suspend fun getMatching(
         @Body matchingRequest: MatchingRequest,
     ): Response<MatchingResponse>
+
+    @GET("aster/user/both")
+    suspend fun getMatchBoth(
+        @Body matchingBothRequest: MatchingBothRequest,
+    ):Response<MatchingBothResponse>
 }
