@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-  
+    <item android:state_checked="true">
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <size android:width="28dp" android:height="28dp"/>
+                    <stroke android:width="2dp" android:color="@color/milk_pink"/>
+                </shape>
+            </item>
+            <item android:drawable="@drawable/radio_bg" android:left="10dp" android:right="10dp" android:top="10dp" android:bottom="10dp"/>
+        </layer-list>
+    </item>
+    <item android:state_checked="false">
+        <shape android:shape="oval">
+            <size android:height="28dp" android:width="28dp"/>
+            <solid android:color="@color/white"/>
+            <stroke android:width="2dp"
+                android:color="@color/milk_pink"/>
+        </shape>
+    </item>
 </selector>

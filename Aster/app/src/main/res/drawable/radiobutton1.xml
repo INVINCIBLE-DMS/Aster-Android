@@ -5,8 +5,14 @@
             <item>
                 <shape android:shape="oval">
                     <padding android:bottom="6dp" android:left="6dp" android:right="6dp" android:top="6dp"/>
-                    <solid android:color="@color/strong_pink"/>
+                    <solid android:color="@color/white"/>
+                    <stroke android:width="2dp" android:color="@color/white_pink"/>
                 </shape>
+            </item>
+            <item android:drawable="@drawable/radio_bg" android:top="6dp" android:start="6dp"
+                android:end="6dp" android:bottom="6dp">
+
+                <color android:color="@color/white_pink"/>
             </item>
         </layer-list>
 
