@@ -15,24 +15,29 @@ import com.bumptech.glide.Glide
 
 class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_detail) {
 
-    private val detailRepository:DetailRepository by lazy {
+    private val detailRepository: DetailRepository by lazy {
         DetailRepository()
     }
 
-    private val detailViewModelFactory:DetailViewModelFactory by lazy {
-        DetailViewModelFactory(detailRepository,editor)
+    private val detailViewModelFactory: DetailViewModelFactory by lazy {
+        DetailViewModelFactory(detailRepository, editor)
     }
 
     private val detailViewModel: DetailViewModel by lazy {
-        ViewModelProvider(this,detailViewModelFactory)[DetailViewModel::class.java]
+        ViewModelProvider(this, detailViewModelFactory)[DetailViewModel::class.java]
     }
 
+    private var liked:Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding.lifecycleOwner = this
+        val data = intent.extras?.getLong("feedId")
+        if (data != null) {
+            initData(data)
+            initLikeBtn(data)
+        }
         initBack()
-        initData()
         observeCommentList()
     }
 
@@ -42,18 +47,25 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
         }
     }
 
-    private fun initData() {
-        val feedId = intent.extras?.getLong("feedId")
-        if(feedId!= null) {
-            detailViewModel.getCommentList(feedId)
+    private fun initData(feedId: Long) {
+        //val feedId = intent.extras?.getLong("feedId")
+        detailViewModel.getCommentList(feedId)
+
+    }
+
+    private fun initLikeBtn(feedId: Long) {
+        binding.btnDetailLike.setOnClickListener {
+            liked = !liked
+            likeBtn()
+            detailViewModel.postLike(feedId)
         }
     }
 
 
     private fun observeCommentList() {
         detailViewModel.commentListResponse.observe(this) {
-            when(it.code()) {
-                OK-> {
+            when (it.code()) {
+                OK -> {
 
                     setFeedData(it.body()!!.feedResponse)
                 }
@@ -73,16 +85,40 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
             tvDetailDate.text = data.createdAt
             tvDetailTitle.text = data.title
             tvDetailContent.text = data.content
+            liked = data.liked
+            btnDetailLike.text = "${data.likeCount}개"
+            likeBtn()/*
             btnDetailLike.apply {
                 text = "${data.likeCount}개"
-                if(data.liked) {
+                if (data.liked) {
                     setBackgroundColor(R.color.strong_pink)
-                    setBackgroundResource(R.drawable.feed_like_activation)
 
-                }else {
+                    val newDrawable = resources.getDrawable(R.drawable.feed_like_activation)
+                    setCompoundDrawablesWithIntrinsicBounds(newDrawable, null, null, null)
+                } else {
                     setBackgroundColor(R.color.light_gray)
-                    setBackgroundResource(R.drawable.feed_like_inactive)
+
+                    val newDrawable = resources.getDrawable(R.drawable.feed_like_inactive)
+                    setCompoundDrawablesWithIntrinsicBounds(newDrawable, null, null, null)
                 }
+            }*/
+        }
+    }
+
+    @SuppressLint("ResourceAsColor")
+    private fun likeBtn() {
+        binding.btnDetailLike.apply {
+            //.setOnFocusChangeListener { _, hasFocus ->
+
+        //}
+
+            if(liked){
+
+                val newDrawable = resources.getDrawable(R.drawable.feed_like_activation)
+                setCompoundDrawablesWithIntrinsicBounds(newDrawable, null, null, null)
+            }else {
+                val newDrawable = resources.getDrawable(R.drawable.feed_like_inactive)
+                setCompoundDrawablesWithIntrinsicBounds(newDrawable, null, null, null)
             }
         }
     }

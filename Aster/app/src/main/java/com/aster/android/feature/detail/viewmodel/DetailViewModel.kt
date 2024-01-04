@@ -23,4 +23,10 @@ class DetailViewModel(
             _commentListResponse.postValue(detailRepository.getDetail(feedId))
         }
     }
+
+    fun postLike(feedId: Long) {
+        viewModelScope.launch(Dispatchers.IO) {
+            detailRepository.postLike(feedId)
+        }
+    }
 }
