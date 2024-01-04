@@ -1,4 +1,5 @@
 package com.aster.android.feature.home.model
 
-class MatchingRequest {
-}
+data class MatchingRequest(
+    val username: String,
+)

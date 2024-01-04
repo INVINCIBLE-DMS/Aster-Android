@@ -1,60 +1,53 @@
 package com.aster.android.feature.home.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.appcompat.widget.SearchView
+import androidx.lifecycle.ViewModelProvider
 import com.aster.android.R
+import com.aster.android.base.BaseFragment
+import com.aster.android.databinding.FragmentMatchBinding
+import com.aster.android.feature.home.repository.HomeRepository
+import com.aster.android.feature.home.viewmodel.HomeViewModel
+import com.aster.android.feature.home.viewmodel.factory.HomeViewModelFactory
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class MatchFragment : BaseFragment<FragmentMatchBinding>(R.layout.fragment_match) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MatchFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class MatchFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    private val homeRepository: HomeRepository by lazy {
+        HomeRepository()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_match, container, false)
+    private val homeViewModelFactory: HomeViewModelFactory by lazy {
+        HomeViewModelFactory(homeRepository, editor)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MatchFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MatchFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    private val homeViewModel: HomeViewModel by lazy {
+        ViewModelProvider(this, homeViewModelFactory)[HomeViewModel::class.java]
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.matchFragment = this
+
+        binding.searchMatch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return true
             }
+
+            override fun onQueryTextSubmit(query: String?): Boolean {
+
+                if (query != null){
+                    Log.d("TEST","s"+query)
+                    /*val fragment = fragmentManager?.findFragmentById(R.id.vp_home) as? HomeFragment
+                    fragment?.performSearch(query)*/
+                    homeViewModel.getMatching(query)
+                }
+                return true
+            }
+
+        })
+
+
     }
 }

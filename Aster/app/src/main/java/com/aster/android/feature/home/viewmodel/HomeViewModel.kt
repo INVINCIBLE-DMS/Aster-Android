@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aster.android.feature.home.model.MatchingBothRequest
 import com.aster.android.feature.home.model.MatchingBothResponse
-import com.aster.android.feature.home.model.MatchingRequest
 import com.aster.android.feature.home.model.MatchingResponse
 import com.aster.android.feature.home.repository.HomeRepository
 import kotlinx.coroutines.Dispatchers
@@ -27,10 +26,10 @@ class HomeViewModel(
     val matchingBothResponse: LiveData<Response<MatchingBothResponse>> = _matchingBothResponse
 
     fun getMatching(
-        matchingRequest: MatchingRequest
+        username: String
     ) {
         viewModelScope.launch(Dispatchers.IO) {
-            _matchIngResponse.postValue(homeRepository.getMatch(matchingRequest))
+            _matchIngResponse.postValue(homeRepository.getMatch(username))
         }
     }
 
