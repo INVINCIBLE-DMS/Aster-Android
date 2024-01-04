@@ -1,9 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".feature.detail.activity.DetailActivity">
+<layout>
+    <data>
+        <variable
+            name="ActivityDetail"
+            type="com.aster.android.feature.detail.activity.DetailActivity" />
+    </data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".feature.detail.activity.DetailActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_detail_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/left_arrow_icon"/>
+        </androidx.appcompat.widget.Toolbar>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_detail_profile"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tb_detail"/>
+
+        <TextView
+            android:id="@+id/tv_detail_writer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:fontFamily="@font/regular"
+            android:text="sasasd"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@id/iv_detail_profile"
+            app:layout_constraintTop_toTopOf="@id/iv_detail_profile"/>
+
+        <TextView
+            android:id="@+id/tv_detail_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20202020"
+            android:textSize="10sp"
+            android:textColor="@color/dark_gray"
+            app:layout_constraintStart_toStartOf="@id/tv_detail_writer"
+            app:layout_constraintTop_toBottomOf="@id/tv_detail_writer"/>
+
+        <TextView
+            android:id="@+id/tv_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dsasdasd"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:fontFamily="@font/regular"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="@id/iv_detail_profile"
+            app:layout_constraintTop_toBottomOf="@id/iv_detail_profile"/>
+
+        <View
+            android:id="@+id/view_detail_line1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/black"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_detail_title"/>
+        
+        <TextView
+            android:id="@+id/tv_detail_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="10dp"
+            android:textSize="10sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/regular"
+            app:layout_constraintTop_toBottomOf="@id/view_detail_line1"
+            app:layout_constraintStart_toStartOf="@id/view_detail_line1"
+            app:layout_constraintEnd_toEndOf="@id/view_detail_line1"/>
+        
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_detail_like"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="14개"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/like_btn_back"
+            android:backgroundTint="@color/light_gray"
+            android:drawableLeft="@drawable/feed_like_inactive"
+            android:paddingStart="35dp"
+            android:paddingEnd="35dp"
+            android:fontFamily="@font/regular"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/tv_detail_content"
+            app:layout_constraintEnd_toEndOf="@id/tv_detail_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_detail_content"/>
+
+        <View
+            android:id="@+id/view_Detail_line2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_detail_like"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
