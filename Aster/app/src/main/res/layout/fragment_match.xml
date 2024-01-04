@@ -1,14 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".feature.home.fragment.MatchFragment">
+<layout>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+        <variable
+            name="MatchFragment"
+            type="com.aster.android.feature.home.fragment.MatchFragment" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".feature.home.fragment.MatchFragment">
 
-</FrameLayout>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/home_matching_back"
+            app:elevation="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardCornerRadius="24dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_match_write"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/match_write_description"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/regular"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <LinearLayout
+                    android:id="@+id/linear_match"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/tv_match_write"
+                    app:layout_constraintTop_toBottomOf="@id/tv_match_write">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="나와의 "
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="최고의 궁합 "
+                        android:textColor="@color/strong_pink"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="은 누구일까?"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/bold"/>
+                </LinearLayout>
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search_match"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/search_back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/linear_match"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
