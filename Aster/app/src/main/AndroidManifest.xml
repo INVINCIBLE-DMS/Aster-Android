@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,7 +15,25 @@
         android:theme="@style/Theme.Aster"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".feature.login.activity.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.write.activity.WriteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.detail.activity.DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.survey.activity.SurveyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.main.activity.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.result.activity.ResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.signup.activity.SignupActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
