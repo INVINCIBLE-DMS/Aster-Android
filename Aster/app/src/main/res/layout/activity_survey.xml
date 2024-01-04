@@ -31,14 +31,13 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="20dp"/>
 
-            <com.google.android.material.progressindicator.LinearProgressIndicator
+            <ProgressBar
                 android:layout_width="200dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:max="100"
                 android:progressDrawable="@drawable/progress_bar_custom"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                android:progress="40" />
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -84,7 +83,7 @@
             app:layout_constraintEnd_toEndOf="@id/tv_survey_title"
             app:layout_constraintTop_toBottomOf="@id/tv_survey_title"/>
 
-        <LinearLayout
+        <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -92,6 +91,17 @@
             app:layout_constraintEnd_toEndOf="@id/iv_survey"
             app:layout_constraintTop_toBottomOf="@id/iv_survey">
 
-        </LinearLayout>
+            <RadioButton
+                android:layout_width="36dp"
+                android:layout_height="36dp"/>
+            
+            <RadioButton
+                android:layout_width="28dp"
+                android:layout_height="28dp"/>
+            
+            <RadioButton
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+        </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
